@@ -70,7 +70,7 @@ class Po(Module):
         cls.checkstate(module, -1, 1)
         module.position = tokens[1:]
         module.xpos, module.ypos, module.orientation= [float(x) for x in tokens[1:4]]
-        module.layer = tokens[5]
+        module.layer = tokens[4]
         module.timestamp1, module.timestamp2 = tokens[5:7]
         module.attrib = tokens[7]
 
