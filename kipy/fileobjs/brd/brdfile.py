@@ -16,9 +16,13 @@ class BrdFile(BrdItem):
 
     def render(self, linelist):
         self.PCBNEW_BOARD.render(self, linelist)
+        linelist.append('')
         self.GENERAL.render(self, linelist)
+        linelist.append('')
         self.SHEETDESCR.render(self, linelist)
+        linelist.append('')
         self.SETUP.render(self, linelist)
+        linelist.append('')
         for item in self.items:
             item.render(linelist)
         self.EndBOARD.render(self, linelist)

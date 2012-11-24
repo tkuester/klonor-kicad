@@ -21,7 +21,7 @@ class Na(Equipot):
 
     @staticmethod
     def render(equipot, linelist):
-        linelist.append('Na %s %s' % (equipot.netnumber, equipot.netname))
+        linelist.append('Na %s "%s"' % (equipot.netnumber, equipot.netname))
 
 class St(Equipot):
     @classmethod

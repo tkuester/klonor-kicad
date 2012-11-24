@@ -69,7 +69,8 @@ class Po(Module):
     def subparse(cls, module, tokens, lineiterator):
         cls.checkstate(module, -1, 1)
         module.position = tokens[1:]
-        module.xpos, module.ypos, module.orientation= [float(x) for x in tokens[1:4]]
+        module.xpos, module.ypos = [float(x) for x in tokens[1:3]]
+        module.orientation = int(tokens[3])
         module.layer = tokens[4]
         module.timestamp1, module.timestamp2 = tokens[5:7]
         module.attrib = tokens[7]
@@ -194,7 +195,7 @@ class Shape3D(Module):
     def subparse(cls, module, tokens, lineiterator):
         text = [tokens[0]]
         for tokens in lineiterator:
-            text.append(' '.join([str(x) for x in tokens]))
+            text.append(tokens.linetext)
             if tokens[0] == '$EndSHAPE3D':
                 break
         module.items.extend(text)
